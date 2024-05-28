@@ -3,6 +3,7 @@
 
 # # syntax
 # [i for i in iterable if expression]
+
 # Example:1
 
 # For instance if you want to change a string to a list of characters. You can use a couple of methods. Let's see some of them:
@@ -14,16 +15,16 @@ print(type(lst))     # list
 print(lst)           # ['P', 'y', 't', 'h', 'o', 'n']
 
 # # Second way: list comprehension
-# lst = [i for i in language]
-# print(type(lst)) # list
-# print(lst)       # ['P', 'y', 't', 'h', 'o', 'n']
-# Example:2
+lst = [i for i in language]
+print(type(lst)) # list
+print(lst)       # ['P', 'y', 't', 'h', 'o', 'n']
 
+# Example:2
 # For instance if you want to generate a list of numbers
 
 # # Generating numbers
-# numbers = [i for i in range(11)]  # to generate numbers from 0 to 10
-# print(numbers)                    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numbers = [i for i in range(11)]  # to generate numbers from 0 to 10
+print(numbers)                    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # # It is possible to do mathematical operations during iteration
 # squares = [i * i for i in range(11)]
@@ -64,8 +65,8 @@ print(lst)           # ['P', 'y', 't', 'h', 'o', 'n']
 # Example:
 
 # # Named function
-# def add_two_nums(a, b):
-#     return a + b
+def add_two_nums(a, b):
+    return a + b
 
 # print(add_two_nums(2, 3))     # 5
 # # Lets change the above function to a lambda function
