@@ -33,33 +33,35 @@ print(squares)                    # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 # # It is also possible to make a list of tuples
 numbers = [(i, i * i) for i in range(11)]
 print(numbers)                             # [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+
 # Example:2
 
 # List comprehension can be combined with if expression
 
 # # Generating even numbers
-# even_numbers = [i for i in range(21) if i % 2 == 0]  # to generate even numbers list in range 0 to 21
-# print(even_numbers)                    # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+even_numbers = [i for i in range(21) if i % 2 == 0]  # to generate even numbers list in range 0 to 21
+print(even_numbers)                    # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
 # # Generating odd numbers
-# odd_numbers = [i for i in range(21) if i % 2 != 0]  # to generate odd numbers in range 0 to 21
-# print(odd_numbers)                      # [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-# # Filter numbers: let's filter out positive even numbers from the list below
+odd_numbers = [i for i in range(21) if i % 2 != 0]  # to generate odd numbers in range 0 to 21
+print(odd_numbers)                      # [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+# Filter numbers: let's filter out positive even numbers from the list below
 # numbers = [-8, -7, -3, -1, 0, 1, 3, 4, 5, 7, 6, 8, 10]
-# positive_even_numbers = [i for i in range(21) if i % 2 == 0 and i > 0]
-# print(positive_even_numbers)                    # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+positive_even_numbers = [i for i in range(21) if i % 2 == 0 and i > 0]
+print(positive_even_numbers)                    # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
-# # Flattening a three dimensional array
-# list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# flattened_list = [ number for row in list_of_lists for number in row]
-# print(flattened_list)    # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# Flattening a three dimensional array
+list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flattened_list = [ number for row in list_of_lists for number in row]
+print(flattened_list)    # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 # Lambda Function
 # Lambda function is a small anonymous function without a name. It can take any number of arguments, but can only have one expression. Lambda function is similar to anonymous functions in JavaScript. We need it when we want to write an anonymous function inside another function.
 
 # Creating a Lambda Function
 # To create a lambda function we use lambda keyword followed by a parameter(s), followed by an expression. See the syntax and the example below. Lambda function does not use return but it explicitly returns the expression.
 
-# # syntax
+# syntax
 # x = lambda param1, param2, param3: param1 + param2 + param2
 # print(x(arg1, arg2, arg3))
 # Example:
@@ -68,8 +70,9 @@ print(numbers)                             # [(0, 0), (1, 1), (2, 4), (3, 9), (4
 def add_two_nums(a, b):
     return a + b
 
-# print(add_two_nums(2, 3))     # 5
-# # Lets change the above function to a lambda function
+print(add_two_nums(2, 3))     # 5
+
+# Lets change the above function to a lambda function
 # add_two_nums = lambda a, b: a + b
 # print(add_two_nums(2,3))    # 5
 
