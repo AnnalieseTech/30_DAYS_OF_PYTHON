@@ -62,10 +62,10 @@ print(flattened_list)    # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # To create a lambda function we use lambda keyword followed by a parameter(s), followed by an expression. See the syntax and the example below. Lambda function does not use return but it explicitly returns the expression.
 
 # syntax
-# x = lambda param1, param2, param3: param1 + param2 + param2
-# print(x(arg1, arg2, arg3))
-# Example:
+x = lambda param1, param2, param3: param1 + param2 + param2
+print(x(arg1, arg2, arg3))
 
+# Example:
 # # Named function
 def add_two_nums(a, b):
     return a + b
@@ -73,16 +73,16 @@ def add_two_nums(a, b):
 print(add_two_nums(2, 3))     # 5
 
 # Lets change the above function to a lambda function
-# add_two_nums = lambda a, b: a + b
-# print(add_two_nums(2,3))    # 5
+add_two_nums = lambda a, b: a + b
+print(add_two_nums(2,3))    # 5
 
 # # Self invoking lambda function
-# (lambda a, b: a + b)(2,3) # 5 - need to encapsulate it in print() to see the result in the console
+(lambda a, b: a + b)(2,3) # 5 - need to encapsulate it in print() to see the result in the console
 
-# square = lambda x : x ** 2
-# print(square(3))    # 9
-# cube = lambda x : x ** 3
-# print(cube(3))    # 27
+square = lambda x : x ** 2
+print(square(3))    # 9
+cube = lambda x : x ** 3
+print(cube(3))    # 27
 
 # # Multiple variables
 # multiple_variable = lambda a, b, c: a ** 2 - 3 * b + 4 * c
@@ -90,13 +90,14 @@ print(add_two_nums(2, 3))     # 5
 # Lambda Function Inside Another Function
 # Using a lambda function inside another function.
 
-# def power(x):
-#     return lambda n : x ** n
+def power(x):
+    return lambda n : x ** n
 
-# cube = power(2)(3)   # function power now need 2 arguments to run, in separate rounded brackets
-# print(cube)          # 8
-# two_power_of_five = power(2)(5) 
-# print(two_power_of_five)  # 32
+cube = power(2)(3)   # function power now need 2 arguments to run, in separate rounded brackets
+print(cube)          # 8
+two_power_of_five = power(2)(5) 
+print(two_power_of_five)  # 32
+
 # 🌕 Keep up the good work. Keep the momentum going, the sky is the limit! You have just completed day 13 challenges and you are 13 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
 
 # Exercises: Day 13
@@ -118,22 +119,23 @@ print("Flattened list:", flattened_lists)
 
 
 # output
-# [1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 # Using list comprehension create the following list of tuples:
 
-# [(0, 1, 0, 0, 0, 0, 0),
-# (1, 1, 1, 1, 1, 1, 1),
-# (2, 1, 2, 4, 8, 16, 32),
-# (3, 1, 3, 9, 27, 81, 243),
-# (4, 1, 4, 16, 64, 256, 1024),
-# (5, 1, 5, 25, 125, 625, 3125),
-# (6, 1, 6, 36, 216, 1296, 7776),
-# (7, 1, 7, 49, 343, 2401, 16807),
-# (8, 1, 8, 64, 512, 4096, 32768),
-# (9, 1, 9, 81, 729, 6561, 59049),
-# (10, 1, 10, 100, 1000, 10000, 100000)]
+[(0, 1, 0, 0, 0, 0, 0),
+(1, 1, 1, 1, 1, 1, 1),
+(2, 1, 2, 4, 8, 16, 32),
+(3, 1, 3, 9, 27, 81, 243),
+(4, 1, 4, 16, 64, 256, 1024),
+(5, 1, 5, 25, 125, 625, 3125),
+(6, 1, 6, 36, 216, 1296, 7776),
+(7, 1, 7, 49, 343, 2401, 16807),
+(8, 1, 8, 64, 512, 4096, 32768),
+(9, 1, 9, 81, 729, 6561, 59049),
+(10, 1, 10, 100, 1000, 10000, 100000)]
+
 numbers = [(i, 1, i, i**2, i**3, i**4, i**5) for i in range(11)]
 
 print(numbers)
