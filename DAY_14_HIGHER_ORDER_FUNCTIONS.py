@@ -380,3 +380,257 @@ def six_or_more(string):
 six_or_more = list(filter(six_or_more, countries))
 print(six_or_more)
 
+# Use filter to filter out countries starting with an 'E'
+def no_e(string):
+    return string[0] == "E"
+
+start_with_e = list(filter(no_e, countries))
+print(start_with_e)
+
+# Chain two or more list iterators (eg. arr.map(callback).filter(callback).reduce(callback))
+# Initial list of numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Step 1: Use map to square each number
+squared_numbers = [x * x for x in numbers]
+
+# Step 2: Use filter to keep only even numbers
+even_squares = [x for x in squared_numbers if x % 2 == 0]
+
+# Step 3: Implement a custom reduce function to sum the remaining numbers
+def custom_reduce(func, iterable, initializer=None):
+    it = iter(iterable)
+    if initializer is None:
+        value = next(it)
+    else:
+        value = initializer
+    for element in it:
+        value = func(value, element)
+    return value
+
+# Use the custom reduce function to sum the even squares
+sum_of_even_squares = custom_reduce(lambda x, y: x + y, even_squares)
+
+# Output the result
+print(sum_of_even_squares)
+
+# Declare a function called get_string_lists which takes a list as a parameter and then returns a list containing only string items.
+def get_string_lists(input_list):
+    # Use list comprehension to filter out only string items
+    string_items = [item for item in input_list if isinstance(item, str)]
+    return string_items
+
+# Example usage:
+mixed_list = [1, 'apple', 3.14, 'banana', True, 'cherry']
+result = get_string_lists(mixed_list)
+print(result)  # Output: ['apple', 'banana', 'cherry']
+
+# Use reduce to sum all the numbers in the numbers list.
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Define a custom reduce function to sum all the numbers in the list
+def reduce(func, iterable, initializer=None):
+    it = iter(iterable)
+    if initializer is None:
+        value = next(it)
+    else:
+        value = initializer
+    for element in it:
+        value = func(value, element)
+    return value
+
+# Use the custom reduce function with a lambda to sum the numbers
+sum_of_numbers = reduce(lambda x, y: x + y, numbers)
+
+# Print the result
+print(sum_of_numbers)
+# Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and Iceland are north European countries
+# List of countries
+countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+
+# Initialize an empty string to store the concatenated countries
+concatenated_countries = ""
+
+# Iterate through the countries and concatenate them with commas
+for index, country in enumerate(countries):
+    concatenated_countries += country
+    if index < len(countries) - 2:
+        concatenated_countries += ', '  # Add comma and space for all countries except the last two
+    elif index == len(countries) - 2:
+        concatenated_countries += ', and '  # Add 'and' before the last country
+
+# Produce the desired sentence
+sentence = f'{concatenated_countries} are north European countries.'
+
+# Print the result
+print(sentence)
+# Declare a function called categorize_countries that returns a list of countries with some common pattern (you can find the countries list in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
+def categorize_countries():
+    # List of countries
+    countries = ['Finland', 'Iceland', 'Thailand', 'Nigeria', 'Poland', 'Pakistan', 'India', 'Ireland', 'Afghanistan', 'Australia']
+
+    # Initialize empty lists for each category
+    land_countries = []
+    ia_countries = []
+    island_countries = []
+    stan_countries = []
+
+    # Categorize countries based on patterns
+    for country in countries:
+        if 'land' in country.lower():
+            land_countries.append(country)
+        elif country.endswith('ia'):
+            ia_countries.append(country)
+        elif 'island' in country.lower():
+            island_countries.append(country)
+        elif country.endswith('stan'):
+            stan_countries.append(country)
+
+    # Return the categorized lists
+    return {
+        'land_countries': land_countries,
+        'ia_countries': ia_countries,
+        'island_countries': island_countries,
+        'stan_countries': stan_countries
+    }
+
+# Call the function and store the result
+categorized_countries = categorize_countries()
+
+# Print the categorized lists
+print(categorized_countries)
+# Create a function returning a dictionary, where keys stand for starting letters of countries and values are the number of country names starting with that letter.
+def count_countries_by_letter(countries_list):
+    # Initialize an empty dictionary to store the count of countries for each starting letter
+    letter_counts = {}
+
+    # Count the countries for each starting letter
+    for country in countries_list:
+        first_letter = country[0].upper()  # Get the first letter and convert to uppercase
+        if first_letter in letter_counts:
+            letter_counts[first_letter] += 1
+        else:
+            letter_counts[first_letter] = 1
+
+    return letter_counts
+
+# Example list of countries
+countries = ['Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Italy', 'Japan', 'Russia', 'Spain', 'Sweden']
+# Call the function with the countries list and store the result
+country_counts = count_countries_by_letter(countries)
+# Print the dictionary of country counts by starting letter
+print(country_counts)
+
+# Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
+# Declare a get_last_ten_countries function that returns the last ten countries in the countries list.
+import json
+
+def get_first_ten_countries():
+    with open('data/countries.js', 'r') as file:
+        countries_data = json.load(file)
+        first_ten_countries = countries_data[:10]
+    return first_ten_countries
+
+def get_last_ten_countries():
+    with open('data/countries.js', 'r') as file:
+        countries_data = json.load(file)
+        last_ten_countries = countries_data[-10:]
+    return last_ten_countries
+
+# Example usage
+first_ten = get_first_ten_countries()
+last_ten = get_last_ten_countries()
+
+print("First ten countries:", first_ten)
+print("Last ten countries:", last_ten)
+
+# Exercises: Level 3
+# Use the countries_data.py (https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/countries-data.py) file and follow the tasks below:
+
+# Sort countries by name, by capital, by population
+# List of dictionaries representing countries
+countries = [
+    {'name': 'Finland', 'capital': 'Helsinki', 'population': 5540720},
+    {'name': 'Sweden', 'capital': 'Stockholm', 'population': 10230185},
+    {'name': 'Norway', 'capital': 'Oslo', 'population': 5391369},
+    {'name': 'Denmark', 'capital': 'Copenhagen', 'population': 5818553},
+    {'name': 'Iceland', 'capital': 'Reykjavik', 'population': 343399}
+]
+
+# Sort by name
+sorted_by_name = sorted(countries, key=lambda x: x['name'])
+
+# Sort by capital
+sorted_by_capital = sorted(countries, key=lambda x: x['capital'])
+
+# Sort by population
+sorted_by_population = sorted(countries, key=lambda x: x['population'])
+
+# Print the sorted lists
+print("Sorted by name:")
+for country in sorted_by_name:
+    print(country)
+
+print("\nSorted by capital:")
+for country in sorted_by_capital:
+    print(country)
+
+print("\nSorted by population:")
+for country in sorted_by_population:
+    print(country)
+
+# Sort out the ten most spoken languages by location.
+# Example data representing languages spoken in different countries
+languages_data = [
+    {'language': 'English', 'location': 'USA', 'speakers': 360000000},
+    {'language': 'Spanish', 'location': 'Mexico', 'speakers': 121000000},
+    {'language': 'Chinese', 'location': 'China', 'speakers': 1191000000},
+    {'language': 'Hindi', 'location': 'India', 'speakers': 341000000},
+    {'language': 'Arabic', 'location': 'Egypt', 'speakers': 95000000},
+    {'language': 'Portuguese', 'location': 'Brazil', 'speakers': 229000000},
+    {'language': 'Bengali', 'location': 'Bangladesh', 'speakers': 158000000},
+    {'language': 'Russian', 'location': 'Russia', 'speakers': 258000000},
+    {'language': 'Japanese', 'location': 'Japan', 'speakers': 126000000},
+    {'language': 'French', 'location': 'France', 'speakers': 77000000},
+    # Add more language data as needed
+]
+
+# Sort languages by number of speakers in descending order
+sorted_languages = sorted(languages_data, key=lambda x: x['speakers'], reverse=True)
+
+# Extract the ten most spoken languages
+ten_most_spoken_languages = sorted_languages[:10]
+
+# Print the ten most spoken languages by location
+for index, language in enumerate(ten_most_spoken_languages, start=1):
+    print(f"{index}. {language['language']} - Spoken in {language['location']} by {language['speakers']} speakers")
+
+# Sort out the ten most populated countries.
+# Example data representing countries and their populations
+countries_data = [
+    {'name': 'China', 'population': 1444216107},
+    {'name': 'India', 'population': 1393409038},
+    {'name': 'United States', 'population': 332915073},
+    {'name': 'Indonesia', 'population': 276361783},
+    {'name': 'Pakistan', 'population': 225199937},
+    {'name': 'Brazil', 'population': 213993437},
+    {'name': 'Nigeria', 'population': 211400708},
+    {'name': 'Bangladesh', 'population': 166303498},
+    {'name': 'Russia', 'population': 145912025},
+    {'name': 'Mexico', 'population': 130262216},
+    {'name': 'Japan', 'population': 126050804},
+    # Add more country data as needed
+]
+
+# Sort countries by population in descending order
+sorted_countries = sorted(countries_data, key=lambda x: x['population'], reverse=True)
+
+# Extract the ten most populated countries
+ten_most_populated_countries = sorted_countries[:10]
+
+# Print the ten most populated countries
+for index, country in enumerate(ten_most_populated_countries, start=1):
+    print(f"{index}. {country['name']} - Population: {country['population']}")
