@@ -144,11 +144,38 @@ print(f'{day}/{month}/{year}, {hour}:{minute}')
 print(f'{month}/{day}/{year}, {hour}:{minute}:{second}')
 
 # Today is 5 December, 2019. Change this time string to time.
-
+from datetime import datetime
+date_string = "5 December, 2019"
+print("date_string", date_string)
+date_object = datetime.strptime(date_string, "%d %B, %Y")
+print("date_object", date_object)
 
 # Calculate the time difference between now and new year.
+from datetime import datetime, date
+today = date(year=2024, month=7, day=11)
+new_year = date(year=2025, month=1, day=1)
+time_left_for_newyear = new_year - today
+# Time left for new year: 27 days, 0:00:00
+print('Time left for the new year:', time_left_for_newyear)
+
+t1 = datetime(year = 2024, month = 7, day = 11, hour = 0, minute = 59, second = 0)
+t2 = datetime(year = 2025, month = 1, day = 1, hour = 0, minute = 0, second = 0)
+diff = t2 - t1
+print('Time left for the new year:', diff)
+
 # Calculate the time difference between 1 January 1970 and now.
+from datetime import datetime, date
+today = date(year=2024, month=7, day=12)
+old = date(year=1970, month=1, day=1)
+time_diff = today - old
+print('The time difference between 1 January 1970 and now:', time_diff)
+
 # Think, what can you use the datetime module for? Examples:
 # Time series analysis
+# For analyzing data over a period of time, you can use datetime to parse dates and times, calculate time differences, and more.
+git
 # To get a timestamp of any activities in an application
+# Track when specific events happen in your application, such as logging user activities.
+
 # Adding posts on a blog
+# Record the date and time when a blog post is created, updated, or published.
